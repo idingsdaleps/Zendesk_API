@@ -21,8 +21,6 @@ founduseremail = ""
 newuser = ""
 
 
-
-
 def searchById(customerId):
     print("Searching for Netsuite ID " + str(customerId))
     userid = ""
@@ -83,6 +81,8 @@ def searchAndCreate(email, nsID, name, body, subject):
     if not founduseremail and not founduser:
         print("No results, creating user")
         createUser(name, email, nsID)
+        ticketuserId = newuser
+    time.sleep(2.5)
     print ("Creating ticket with ID " + str(ticketuserId.id))
     createTicket(ticketuserId, body, subject)
     return 'Success!'
@@ -97,3 +97,6 @@ def zendesk_route():
 
 
 
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
