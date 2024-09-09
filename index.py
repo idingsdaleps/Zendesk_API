@@ -87,6 +87,7 @@ def searchAndCreate(email, nsID, name, body, subject):
     createTicket(ticketuserId, body, subject)
     return 'Success!'
 
+
 @app.route('/zendesk', methods=['GET', 'POST'])
 def zendesk_route():
    if request.method == 'GET':
@@ -94,7 +95,10 @@ def zendesk_route():
    elif request.method == "POST":
     content = request.json
     return searchAndCreate(content['email'],content['nsID'],content['name'],content['body'],content['subject'])
-
+    ticketuserId = ""
+    founduser = ""
+    founduseremail = ""
+    newuser = ""
 
 
 
